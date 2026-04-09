@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Лабораторная работа 2</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+            background: #e8eef2;
+            color: #2c3e50;
+            line-height: 1.7;
+            padding: 2rem 1rem;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: #f5f7f9;
+            padding: 1.8rem 2.5rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .header h1 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            color: #2c3e50;
+            margin-bottom: 0.25rem;
+        }
+        
+        .content {
+            padding: 2rem 2.5rem;
+        }
+        
+        .student-info {
+            background: #f9fbfd;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            border-left: 3px solid #9aaebf;
+        }
+        
+        .student-info p {
+            margin: 0.25rem 0;
+        }
+        
+        h2 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: #2c3e50;
+            margin: 1.8rem 0 1rem 0;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        h3 {
+            font-size: 1.15rem;
+            font-weight: 500;
+            color: #2c3e50;
+            margin: 1.2rem 0 0.7rem 0;
+        }
+        
+        pre {
+            background: #f8fafc;
+            padding: 1rem 1.25rem;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
+            font-size: 0.85rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+            margin: 0.75rem 0;
+        }
+        
+        hr {
+            border: none;
+            border-top: 1px solid #e2e8f0;
+            margin: 1.8rem 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Лабораторная работа 2</h1>
+            <p>HTTP-запросы к веб-серверу</p>
+        </div>
+        
+        <div class="content">
+            <div class="student-info">
+                <p><strong>Студент:</strong> Алейник Григорий</p>
+                <p><strong>Логин:</strong> u82669</p>
+            </div>
+
+            <h2>Подготовка к выполнению работы</h2>
+            <h3>Содержимое локальной папки</h3>
+            <img src="1.png" alt="Содержимое локальной папки">
+            <p>Скриншот 1: Файлы в локальной папке (index.html, скриншоты, file.tar.gz, image.png, index.php)</p>
+
+            <h2>Инициализация Git и отправка на GitHub</h2>
+            
+            <h3>1. Инициализация репозитория (git init)</h3>
+            <img src="2.png" alt="git init">
+            <p>Скриншот 2: Выполнение команды git init</p>
+
+            <h3>2. Добавление файлов (git add .)</h3>
+            <img src="3.png" alt="git add">
+            <p>Скриншот 3: Выполнение команды git add .</p>
+
+            <h3>3. Создание коммита (git commit)</h3>
+            <img src="4.png" alt="git commit">
+            <p>Скриншот 4: Выполнение команды git commit -m "первая версия"</p>
+
+            <h3>4. Привязка к удалённому репозиторию и push (git push)</h3>
+            <img src="5.png" alt="git push">
+            <p>Скриншот 5: Выполнение команд git remote add origin и git push -u origin main</p>
+
+            <h2>HTTP-запросы к веб-серверу</h2>
+
+            <h3>Задание 1: GET главной страницы (HTTP/1.0)</h3>
+            <pre>GET / HTTP/1.0
+Host: kubsu.ru</pre>
+            <img src="6.png" alt="Задание 1">
+            <p>Скриншот 6: Ответ сервера на GET / HTTP/1.0</p>
+
+            <h3>Задание 2: GET /lab2/index.php (HTTP/1.1)</h3>
+            <pre>GET /lab2/index.php HTTP/1.1
+Host: u82669.kubsu-dev.ru</pre>
+            <img src="7.png" alt="Задание 2">
+            <p>Скриншот 7: Ответ сервера на GET /lab2/index.php</p>
+
+            <h3>Задание 3: HEAD /lab2/file.tar.gz (размер файла)</h3>
+            <pre>HEAD /lab2/file.tar.gz HTTP/1.1
+Host: u82669.kubsu-dev.ru</pre>
+            <img src="8.png" alt="Задание 3">
+            <p>Скриншот 8: Заголовок Content-Length с размером файла</p>
+
+            <h3>Задание 4: HEAD /lab2/image.png (медиатип)</h3>
+            <pre>HEAD /lab2/image.png HTTP/1.1
+Host: u82669.kubsu-dev.ru</pre>
+            <img src="9.png" alt="Задание 4">
+            <p>Скриншот 9: Заголовок Content-Type: image/png</p>
+
+            <h3>Задание 5: POST /lab2/index.php (отправить комментарий)</h3>
+            <pre>POST /lab2/index.php HTTP/1.1
+Host: u82669.kubsu-dev.ru
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 20
+
+comment=Привет!</pre>
+            <img src="10.png" alt="Задание 5">
+            <p>Скриншот 10: Ответ сервера с массивом $_POST</p>
+
+            <h3>Задание 6: GET /lab2/file.tar.gz с Range (первые 100 байт)</h3>
+            <pre>GET /lab2/file.tar.gz HTTP/1.1
+Host: u82669.kubsu-dev.ru
+Range: bytes=0-99</pre>
+            <img src="11.png" alt="Задание 6">
+            <p>Скриншот 11: Статус 206 Partial Content и заголовок Content-Range</p>
+
+            <h3>Задание 7: HEAD /lab2/index.php (кодировка)</h3>
+            <pre>HEAD /lab2/index.php HTTP/1.1
+Host: u82669.kubsu-dev.ru</pre>
+            <img src="12.png" alt="Задание 7">
+            <p>Скриншот 12: Заголовок Content-Type с кодировкой charset=UTF-8</p>
+
+            <hr>
+            <p>Все запросы отправлялись через PuTTY (порт 80, Raw) к серверу u82669.kubsu-dev.ru.</p>
+        </div>
+    </div>
+</body>
+</html>
